@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_EBA5E70C-D03C-4D46-80CF-C84F180FD580" id="_0AF17DFC-66DC-42B3-A114-B48804A4EB0B" name="DMN_845DB492-FD7C-4C89-A805-E4C22C69B645" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <decision name="Should the driver be susspended?" id="_38B32913-8894-4E71-8DE3-725691DF7321">
+    <variable name="Should the driver be susspended?" id="_1F80AC1F-6D4B-4025-808E-DE5DAA2E0307" />
+    <informationRequirement id="_BC4312BD-8719-48D9-AEAE-03B5B72F9C38">
+      <requiredDecision href="#_8C43188C-9C6B-4722-A10E-77EC5AC608CB" />
+    </informationRequirement>
+    <informationRequirement id="_6590B5B6-7775-4652-A2BC-920EBA18D388">
+      <requiredInput href="#_EF153F70-8F4B-4756-8B08-48A8E68E1A06" />
+    </informationRequirement>
+  </decision>
+  <decision name="Fine" id="_8C43188C-9C6B-4722-A10E-77EC5AC608CB">
+    <variable name="Fine" id="_083FF545-86CB-4613-A517-3B920E144433" />
+    <informationRequirement id="_D2B45B1A-E6BB-420E-857A-639A293CFEFE">
+      <requiredDecision href="#_E79BF029-914E-4B0A-8C7F-D92FBA743575" />
+    </informationRequirement>
+  </decision>
+  <decision name="Violation" id="_E79BF029-914E-4B0A-8C7F-D92FBA743575">
+    <variable name="Violation" id="_F6554F80-3122-4F94-A8B2-F992346607DA" />
+  </decision>
+  <inputData name="Driver" id="_EF153F70-8F4B-4756-8B08-48A8E68E1A06">
+    <variable name="Driver" id="_BAD51FBF-2768-440E-AA03-14A95813C0D8" />
+  </inputData>
+  <decisionService name="FineService" id="_EAF4A642-53E7-4564-91CA-64274F4D3B72">
+    <variable name="FineService" id="_C72C0975-8D17-482E-846A-BFF82D63DFE1" />
+    <outputDecision href="#_8C43188C-9C6B-4722-A10E-77EC5AC608CB" />
+    <encapsulatedDecision href="#_E79BF029-914E-4B0A-8C7F-D92FBA743575" />
+  </decisionService>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_A9DCF308-3777-4C22-A402-3E2E37829C55" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths />
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_39593274-8007-4F8A-BC6D-32C4B5230887" dmnElementRef="_EF153F70-8F4B-4756-8B08-48A8E68E1A06" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="240" y="100" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_7E2583C6-C6FA-4A68-AFC9-4E49DF6629EF" dmnElementRef="_EAF4A642-53E7-4564-91CA-64274F4D3B72" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="760" y="120" width="320" height="320" />
+        <dmndi:DMNDecisionServiceDividerLine id="_B295CD5A-F21E-4846-8373-A0EDB750454A">
+          <di:waypoint x="760" y="280" />
+          <di:waypoint x="1080" y="280" />
+        </dmndi:DMNDecisionServiceDividerLine>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_0A56C389-52F8-4D72-BB44-6E770CCD482B" dmnElementRef="_38B32913-8894-4E71-8DE3-725691DF7321" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="580" y="60" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_9A639794-197F-4208-9C59-4CE3893A933B" dmnElementRef="_8C43188C-9C6B-4722-A10E-77EC5AC608CB" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="800" y="180" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_CA8D7282-674E-4050-8B05-64042324824E" dmnElementRef="_E79BF029-914E-4B0A-8C7F-D92FBA743575" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="880" y="320" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_A48886F9-3315-44CE-A93A-73E51924D5FA" dmnElementRef="_D2B45B1A-E6BB-420E-857A-639A293CFEFE" sourceElement="_CA8D7282-674E-4050-8B05-64042324824E" targetElement="_9A639794-197F-4208-9C59-4CE3893A933B">
+        <di:waypoint x="960" y="360" />
+        <di:waypoint x="880" y="260" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_8C0327AD-69C1-46D6-A743-8987395BBFA9" dmnElementRef="_BC4312BD-8719-48D9-AEAE-03B5B72F9C38" sourceElement="_9A639794-197F-4208-9C59-4CE3893A933B" targetElement="_0A56C389-52F8-4D72-BB44-6E770CCD482B">
+        <di:waypoint x="880" y="220" />
+        <di:waypoint x="740" y="100" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_E1885D63-1BEC-45D5-8BDB-39B9EA43581E" dmnElementRef="_6590B5B6-7775-4652-A2BC-920EBA18D388" sourceElement="_39593274-8007-4F8A-BC6D-32C4B5230887" targetElement="_0A56C389-52F8-4D72-BB44-6E770CCD482B">
+        <di:waypoint x="320" y="140" />
+        <di:waypoint x="580" y="100" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
